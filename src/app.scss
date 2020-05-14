@@ -1,0 +1,409 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing:border-box;
+}
+
+body{
+    background:#cac;
+    font-size: 16px;
+    font-family: 'Mukta', sans-serif;
+
+}
+
+// Variables{
+    $black:#535353;
+    $color1:#fa6583;
+    $color2:#3de8b1;
+    $color3:#68e2ef;
+    $color4:#fdd41e;
+    $color5:#6978ef;
+    $color6:#f7f7f7;
+
+// }
+// for{
+  .bg-1{
+    background: $color1 !important;
+  }
+  .bg-2{
+    background: $color2 !important;
+  }
+  .bg-3{
+    background: $color3 !important;
+  }
+  .bg-4{
+    background: $color4 !important;
+  }
+  .bg-5{
+    background: $color5 !important;
+  }
+
+// }
+// mixing {
+
+    @mixin flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+ 
+
+// }
+.app{
+    display: grid;
+    grid-template-columns: 22% auto;
+    grid-template-areas: "nav main";
+    //height: 100vh;
+    .nav{
+        grid-area: nav;
+        background:#fff;
+        padding:3em;
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 1fr 1fr auto;
+        .user{
+
+            .perfil{
+                @include flex-center;
+                width: 100%;
+                margin: auto;
+                position: relative;
+                max-width: 120px;
+                height: 120px;
+                overflow: hidden;
+                border-radius: 100%;
+                img{
+                    width: 120px;
+                }
+               
+            }
+            .name{
+                
+                //width: 500px;
+                //background: $color4;
+                margin: 2em 0px 0px 0px;
+                .name-text{
+                    font-size: 1.5em;
+                    color: $black;
+                    line-height: 1em;
+                    
+                }
+                p{
+                    color: $black;
+                    font-size:1em;
+                    opacity: .8;
+
+                }
+            }
+            .mode{
+                //background: #000;
+                font-style: italic;
+                display:flex;
+                font-size: .8em;
+                margin-top: .5em;
+                align-items: center;
+                span{
+                    width: 15px;
+                    height: 15px;
+                    display: block;
+                    border-radius:50%;
+                    margin-right: 5px;
+                    background: $color2;
+                }
+            }
+        }
+        .menu{
+            margin-top: 1em;
+            ul{
+                li{
+                    font-size: 1.15em;
+                    color:$black;
+                    opacity: .7;
+                    font-weight: 400;
+                    margin-bottom: .8em;
+                    line-height: 1em;
+                    cursor: pointer;
+                    .lni{
+                        margin-right:8px;
+                    }
+                    &.active, &:hover{
+                        font-weight: 500;
+                        color:$color1;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .log-out{
+            color:$black;
+            font-weight: 600;
+            opacity: .7;
+            font-size: 1.25em;
+            cursor: pointer;
+        }
+    }
+    .main{
+        background: $color6;
+        display: grid;
+        font-size: 16px;
+        overflow-y: scroll;
+        grid-template-rows: 20% auto;
+        .header{
+            //background: #000
+            display: grid;
+            grid-template-columns: 200px auto 50px;
+            align-items: center;
+            padding: 0em 4em;
+            .message-notification{
+                display: flex;
+                .notification,.message{
+                    @include flex-center;
+                    background: #fff;
+                    padding: 10px; 
+                    width: 45px; 
+                    font-size: 1.3em;
+                    height: 45px;
+                    cursor: pointer;
+                    color:$black;
+                    border-radius:50%;
+                    position: relative;
+                    line-height: 0px;
+                    box-shadow: -1px 3px 4px rgba(202, 202, 202, 0.38);
+                }
+                .notification{
+                    margin-left: 1em;
+                   span{
+                       //display: block;
+                       height: 15px;
+                       position: absolute;
+                       width: 15px;
+                       top:-5px;
+                       right: 0px;
+                       padding: 10px;
+                       color:#fff;
+                       border-radius:50%;
+                       @include flex-center;
+                       background:$color1;
+                   } 
+                }
+
+            }
+            .search{
+                .form-control{
+                    background: #fff;
+                    width: 100%;
+                    padding: 15px 10px;
+                    border-radius:10px;
+                    max-width: 450px;
+                    display: grid;
+                    grid-template-columns: 35px auto;
+                    box-shadow: -1px 3px 4px rgba(202, 202, 202, 0.38);
+                    span{
+                        @include flex-center;
+                        cursor: pointer;
+                    }
+                    input{
+                        width: 100%;
+                        border:none;
+                    }
+                }
+            }
+            .burger{
+                font-size: 1.3em;
+                color:$black;
+                cursor: pointer;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+        .body-app{
+            padding: 0em 4em;
+           
+            .project{
+                display: grid;
+                align-items: center;
+                color:$black;
+                grid-template-columns:200px 400px auto ;
+                .name{
+                    h2{
+                        font-size: 1.5em;
+                        line-height: 1em;
+                    }
+                    span{
+                        font-size: 1em;
+                        line-height: 1em;
+                        opacity: .8;
+                       
+                    }
+                
+                }
+                .date{
+                    p{
+                        font-size: 1em;
+                        line-height: 1.5em;
+                        opacity: .8;
+                    }
+                    span{
+                        font-size: 1.2em;
+                        
+                        line-height: 1em;
+
+                    }
+                }
+                .members{
+                    display: flex;
+                    justify-content: flex-end;
+                    .add-member,.member{
+                        width: 50px;
+                        height: 50px;
+                        overflow: hidden;
+                        @include flex-center;
+                        margin-right: 1em;
+                        background: $color2;
+                        border-radius:50%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .add-member{
+                        margin-right: 0em; 
+                        font-size: 1.5em; 
+                        color:$black;
+                        background:#dfdfdf;
+                    }
+                }
+            }
+
+            .butones{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 4em ;
+                margin-bottom: 1em ;
+                .add-column,.new-ticket{
+                    padding: .4em 1.5em;
+                    border-radius:9px;
+                    cursor: pointer;
+                    font-size: 1em;
+                    margin-right: 1em;
+                  
+                }
+                .new-ticket{
+                    background: $color1;
+                    text-transform: uppercase;
+                    color:$color6
+                }
+                .add-column{
+                    background:#dfdfdf;
+                    margin-right: 0em;
+                }
+
+            }
+            .taks-content{
+                //background: rgb(238, 208, 208);
+                display: grid;
+                gap: 40px;
+                grid-template-columns: 1fr 1fr 1fr;
+                .taks-column{
+                    display: grid; 
+                    grid-template-rows: 50px auto;
+                    .header-taks{
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 1em;
+                        h2{
+                            font-size: 1.25em;
+                            color: $black;
+                            .lni{
+                                margin-left: 1em;
+                                font-size: .5em;
+                                font-weight: 900;
+                            }
+                        }
+                    }
+                    .taks-group{
+                        .taks{
+                            background:#fff;
+                            padding: 1.2em;
+                            border-radius:5px;
+                            margin-bottom: 2em;
+                            color:$black;
+                            transition: .5s;
+                            box-shadow: -1px 3px 4px rgba(202, 202, 202, 0.38);
+                            &:hover{
+                                transform: translate(0px, -5px);
+                            }
+                            h3{
+                                font-size: 1.1em;
+                                line-height: 1em;
+                               
+                            }
+                            span{
+                                font-size: .5em; 
+                                display: flex;
+                                align-items: center;
+                                i  {
+                                    width: 12px;
+                                    margin-left: 1em;
+                                    display: block;
+                                    height: 12px;
+                                    border-radius:50%;
+                                    background: $color4;
+                                }
+                            }
+                            p{
+                                font-size: .8em; 
+                                height: 4.5em;
+                                opacity: .8;
+                                
+                            }
+                            .taks-footer{
+                                display: grid;
+                                gap:10px;
+                                padding-top: .5em;
+                                border-top: 1px #e7e7e7 solid;
+                                grid-template-columns: 1fr 1fr;
+                                .user-date{
+                                    //background:#caca;
+                                    display: grid;
+                                    grid-template-columns: 30px auto;
+                                    align-items: center;
+                                    .user{
+                                        background: rgb(219, 35, 35);
+                                        width: 30px;
+                                        overflow: hidden;
+                                        height: 30px;
+                                        border-radius: 50%;
+                                        img{
+                                            width: 100%;
+                                        }
+                                        
+                                    }
+                                    .date{
+                                        font-size: .5em;
+                                        margin-left: 1em;
+                                        color:$black;
+                                        opacity: .8;
+                                    }
+                                }
+                                .subtaks{
+                                    display: grid;
+                                    font-weight: 800;
+                                    justify-content: flex-end;
+                                    align-items: center;
+                                    span{
+                                    font-size: .5em;
+                                    color:$black;
+                                    opacity: .8;
+                                    letter-spacing: 1px;
+                                    text-align: right; 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
